@@ -5,7 +5,7 @@
 [![Coverage Status](https://img.shields.io/coveralls/sorrycc/css-resources.svg?style=flat)](https://coveralls.io/r/sorrycc/css-resources)
 [![NPM downloads](http://img.shields.io/npm/dm/css-resources.svg?style=flat)](https://npmjs.org/package/css-resources)
 
-Find all resources in css.
+Find all *image* and *font* resources in css.
 
 ---
 
@@ -18,7 +18,7 @@ $ npm install css-resources -g
 ## Usage
 
 ```bash
-var css-resources = require('css-resources');
+var resources = require('css-resources');
 ```
 
 ## LISENCE
