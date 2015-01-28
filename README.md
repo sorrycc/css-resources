@@ -17,9 +17,49 @@ $ npm install css-resources -g
 
 ## Usage
 
+CSS file a.css
+
+```
+body {
+  background: url(./a.png);
+}
+@font-face {
+  src: url('./font.eot');
+}
+```
+
+Parse CSS with resource
+
 ```bash
 var resources = require('css-resources');
+resources(fs.readFileSync('a.css'));
 ```
+
+Return
+
+```
+[
+  {
+    property: 'background',
+    string: 'url(./a.png)',
+    path: './a.png'
+  },
+  {
+    property: 'src',
+    string: 'url(\'./font.eot\')',
+    path: './font.eot'
+  }
+]
+```
+
+You can add a callback to replace css file
+
+```
+resources(fs.readFileSync('a.css'), function(item) {
+  return 'url("' + resolve(item.path) + '");';
+});
+```
+
 
 ## LISENCE
 

@@ -1,0 +1,12 @@
+@import url('./b.css');
+
+@font-face {
+  src: 1;
+  src: 1 format('embedded-opentype'), 1 format('woff2'), 1 format('woff'), 1 format('truetype'), 1 format('svg');
+}
+
+a {
+  /*background: url('./b.png');*/
+  background: 1;
+  _background: 1;
+}
