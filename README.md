@@ -5,7 +5,7 @@
 [![Coverage Status](https://img.shields.io/coveralls/sorrycc/css-resources.svg?style=flat)](https://coveralls.io/r/sorrycc/css-resources)
 [![NPM downloads](http://img.shields.io/npm/dm/css-resources.svg?style=flat)](https://npmjs.org/package/css-resources)
 
-Find all *image* and *font* resources in css.
+Find and replace all *image* and *font* resources in css.
 
 ---
 
