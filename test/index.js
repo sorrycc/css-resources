@@ -39,4 +39,9 @@ describe('resources', function() {
     resources(str, function() {return 1}).should.be.eql(expected);
   });
 
+  it('don\'t modify if no resources', function() {
+    var str = readFile(join(__dirname, 'b.css'), 'utf-8');
+    resources(str, function(){}).should.be.equal(str);
+  });
+
 });

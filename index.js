@@ -32,7 +32,11 @@ module.exports = function(str, fn) {
   });
 
   if (fn) {
-    return css.stringify(ast);
+    if (ret.length) {
+      return css.stringify(ast);
+    } else {
+      return str;
+    }
   } else {
     return ret;
   }
