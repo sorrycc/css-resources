@@ -1,6 +1,6 @@
 {
   "name": "css-resources",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Find all image and font resources in css.",
   "main": "index",
   "dependencies": {
