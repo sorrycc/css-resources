@@ -8,28 +8,40 @@ module.exports = function(str, fn) {
 
   var ast = css.parse(str);
   var rules = ast.stylesheet.rules;
-  var ret = [];
 
-  rules.forEach(function(rule) {
-    if (!rule.declarations) return;
-    rule.declarations.forEach(function(d) {
-      var m;
-      var found = [];
-      while (m = re.exec(d.value)) {
-        found.push({
-          property: d.property,
-          string: m[0],
-          path: m[1]
+  function traverse(rules) {
+    var ret = [];
+    rules.forEach(function(rule) {
+      if (rule.rules) {
+        ret = ret.concat(traverse(rule.rules));
+      } else {
+        if (!rule.declarations) {
+          return [];
+        }
+
+        rule.declarations.forEach(function(d) {
+          var m;
+          var found = [];
+          while (m = re.exec(d.value)) {
+            found.push({
+              property: d.property,
+              string: m[0],
+              path: m[1]
+            });
+          }
+          if (fn) {
+            found.forEach(function(f) {
+              d.value = d.value.replace(f.string, fn(f));
+            });
+          }
+          ret = ret.concat(found);
         });
       }
-      if (fn) {
-        found.forEach(function(f) {
-          d.value = d.value.replace(f.string, fn(f));
-        });
-      }
-      ret = ret.concat(found);
     });
-  });
+    return ret;
+  }
+
+  var ret = traverse(rules);
 
   if (fn) {
     if (ret.length) {

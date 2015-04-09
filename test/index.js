@@ -32,11 +32,14 @@ describe('resources', function() {
         path: './a.png' },
       { property: '_background',
         string: 'url(\'./a.png\')',
+        path: './a.png' },
+      { property: 'background',
+        string: 'url(\'./a.png\')',
         path: './a.png' }
     ]);
 
     var expected = readFile(join(__dirname, 'expected.css'), 'utf-8');
-    resources(str, function() {return 1}).should.be.eql(expected);
+    resources(str, function() {return 1}).should.be.eql(expected.trim());
   });
 
   it('don\'t modify if no resources', function() {

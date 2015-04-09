@@ -10,3 +10,9 @@ a {
   background: 1;
   _background: 1;
 }
+
+@media only screen {
+  a {
+    background: 1;
+  }
+}
