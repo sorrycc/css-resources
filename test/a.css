@@ -10,3 +10,9 @@ a {
   background: url('./a.png');
   _background: url('./a.png');
 }
+
+@media only screen {
+  a {
+    background: url('./a.png');
+  }
+}
