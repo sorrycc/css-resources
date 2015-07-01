@@ -3,7 +3,8 @@
 var css = require('css');
 var re = /url\(["\']?(.*?)["\']?\)/gi;
 
-module.exports = function(str, fn) {
+module.exports = function(str, fn, opts) {
+  opts = opts || {};
   if (str instanceof Buffer) str = str.toString();
 
   var ast = css.parse(str);
@@ -45,7 +46,7 @@ module.exports = function(str, fn) {
 
   if (fn) {
     if (ret.length) {
-      return css.stringify(ast);
+      return css.stringify(ast, {compress:opts.compress});
     } else {
       return str;
     }
